@@ -1,0 +1,82 @@
+/* Google fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Asterisk wildcard selector to override default styles added by the browser */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    color:#34373b;
+}
+
+/* General styles */
+:root {
+    background-color: #a1c5e6;
+    font-size: 31.25%;
+}
+
+h2,
+h3 {
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-family: 'Playwrite DE Grund', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 5rem;   
+    font-size: 3.6rem;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: #34373b solid 2px;
+}
+
+h2 {
+    margin-bottom: 4rem;  
+    font-size: 2.8rem;
+    text-align: justify;
+}
+
+h3 {
+    font-size: 2.4rem;
+}
+
+ul li {
+    margin-left: 20px;
+    font-size: 2.4rem;
+    text-align: justify;
+}
+
+/* Utilities */
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 80rem; /* Use max-width for responsive design */
+    margin: 0 auto; /* Center horizontally */
+}
+
+.container > * {
+    width: 100%;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-container {
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+    background-color: #fafafa;
+    padding: 60px;
+    box-shadow: 5px 10px 30px #84898E;
+    border-radius: 20px;
+}
+
+
