@@ -79,4 +79,16 @@ ul li {
     border-radius: 20px;
 }
 
-
+.btn {
+    font-size: 1.8rem;
+    padding: 2rem 0;
+    width: 20rem;
+    text-align: center;
+    background-color: #f7f739;
+    color: #34373b;
+    border: 0.1rem solid #34373b;
+    border-radius: 10px;
+    text-decoration: none;
+    font-style: italic;
+    font-weight: 600;
+}
