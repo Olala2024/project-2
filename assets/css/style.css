@@ -13,7 +13,7 @@
 /* General styles */
 :root {
     background-color: #a1c5e6;
-    font-size: 31.25%;
+    font-size: 62.5%;
 }
 
 h2,
@@ -79,10 +79,12 @@ ul li {
     border-radius: 20px;
 }
 
+/* Buttons */
+
 .btn {
-    font-size: 1.8rem;
-    padding: 2rem 0;
-    width: 20rem;
+    font-size: 2.4rem;
+    padding: 3rem 0;
+    width: 30rem;
     text-align: center;
     background-color: #f7f739;
     color: #34373b;
@@ -91,6 +93,14 @@ ul li {
     text-decoration: none;
     font-style: italic;
     font-weight: 600;
+    margin-top: 30px;
+}
+
+.btn:hover {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgb(52, 55, 59, 0.25);
+    transform: translateY(-0.1rem);
+    transition: 150ms;
 }
 
 .choice-container {
@@ -110,4 +120,11 @@ ul li {
 
 .choice-text {
     padding: 1.5rem;
+}
+
+.choice-container:hover {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgb(52, 55, 59, 0.25);
+    transform: translateY(-0.1rem);
+    transition: 150ms;
 }
