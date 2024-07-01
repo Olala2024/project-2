@@ -58,6 +58,7 @@ ul li {
     align-items: center;
     max-width: 80rem; /* Use max-width for responsive design */
     margin: 0 auto; /* Center horizontally */
+    padding: 2rem;
 }
 
 .container > * {
