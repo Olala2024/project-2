@@ -203,6 +203,10 @@ choices.forEach((choice) => {
   });
 });
 
+/**
+ * Displays the results of the quiz by retrieving the correct answers count from local storage
+ * and updating the page with an appropriate message based on the score.
+ */
 function displayResults() {
   // Retrieve the correct answers count from local storage
   const correctAnswers = parseInt(localStorage.getItem("correctAnswers"), 10);
@@ -213,12 +217,13 @@ function displayResults() {
     correctAnswer.innerText = correctAnswers;
   }
 
-  // Determine the message to display based on the correct answer count
+  // Determine the message to display based on the correct answers count
   const resultsTitle = document.getElementById("resultsTitle");
   const resultsText = document.getElementById("resultsText");
   let title = "";
   let text = "";
 
+  // Set the title and text based on the score range
   if (correctAnswers <= 3) {
     title = "Better Luck Next Time!";
     text =
@@ -237,6 +242,7 @@ function displayResults() {
       "Congratulations! You have an excellent knowledge of Ukraine. Your understanding of the country's achievements, culture, and history is outstanding. You're a true Ukraine expert!";
   }
 
+  // Update the results title and text if the elements exist
   if (resultsTitle && resultsText) {
     resultsTitle.innerText = title;
     resultsText.innerText = text;
