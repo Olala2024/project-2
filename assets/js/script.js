@@ -126,27 +126,41 @@ startGame = () => {
   getNewQuestion();
 };
 
+/**
+ * Retrieves and displays a new question. If no questions are available or the maximum
+ * number of questions has been reached, it stores the correct answers count and redirects to the result page.
+ */
 getNewQuestion = () => {
+  // Check if there are no available questions left or if the maximum number of questions has been reached
   if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
     // Store the correct answers count in local storage
     localStorage.setItem("correctAnswers", correctAnswers);
-    //Go to result page
+    // Redirect to the result page
     return window.location.assign("result.html");
   }
+
+  // Increment the question counter
   questionCounter++;
+
+  // Update the question counter text if the element exists
   if (questionCounterText) {
     questionCounterText.innerText = questionCounter + "/" + MAX_QUESTIONS;
+
+    // Select a random question from the available questions
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
     question.innerText = currentQuestion.question;
 
+    // Set the text for each choice
     choices.forEach((choice) => {
       const number = choice.dataset["number"];
       choice.innerText = currentQuestion[`choice${number}`];
     });
 
+    // Remove the used question from the available questions
     availableQuestions.splice(questionIndex, 1);
 
+    // Allow the user to start selecting an answer
     acceptingAnswers = true;
   }
 };
