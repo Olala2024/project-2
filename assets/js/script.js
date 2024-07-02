@@ -21,6 +21,7 @@ let questionCounter = 0;
 let availableQuestions = [];
 let correctAnswers = 0;
 
+// Questions array including the question and choices
 let questions = [
   {
     question: "Which Ukrainian city is known as the 'City of Lions'?",
@@ -110,6 +111,7 @@ let questions = [
   },
 ];
 
+// Global variable storing question`s length
 const MAX_QUESTIONS = questions.length;
 
 startGame = () => {
@@ -208,4 +210,5 @@ function displayResults() {
   }
 }
 
+// Starting the game
 startGame();
