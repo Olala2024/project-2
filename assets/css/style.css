@@ -105,3 +105,45 @@ ul li {
     transition: 150ms;
 }
 
+.choice-container {
+    display: flex;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    font-size: 1.8rem;
+    border: 0.1rem solid rgb(52, 55, 59, 0.25);
+    background-color: #fafafa;
+}
+
+.choice-prefix {
+    padding: 1.5rem 2.5rem;
+    background-color: #f7f739;
+    color: #34373b;
+}
+
+.choice-text {
+    font-size: 2.4rem;
+    font-weight: 500;
+    padding: 1.5rem;
+    width: 100%;
+}
+
+.choice-container:hover {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgb(52, 55, 59, 0.25);
+    transform: translateY(-0.1rem);
+    transition: 150ms;
+}
+
+.correct {
+    background-color: #28a745;
+}
+
+.incorrect {
+    background-color: #dc3545;
+}
+
+@media (min-width: 768px) {
+    :root {
+        font-size: 31.25%;
+    }
+}
