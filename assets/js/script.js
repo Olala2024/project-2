@@ -114,6 +114,11 @@ let questions = [
 // Global variable storing question`s length
 const MAX_QUESTIONS = questions.length;
 
+/**
+ * Initializes the game by resetting the question counter, score,
+ * and copying the questions to the availableQuestions array.
+ * Then, it retrieves the first question.
+ */
 startGame = () => {
   questionCounter = 0;
   score = 0;
