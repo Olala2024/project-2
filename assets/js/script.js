@@ -1,3 +1,10 @@
+document.addEventListener("DOMContentLoaded", function () {
+    // Check if the results page is being rendered by checking the ID
+    if (document.getElementById("results")) {
+       displayResults();
+    }
+  });
+
 const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName('choice-text'));
 const questionCounterText = document.getElementById('questionCounter');
@@ -110,6 +117,7 @@ getNewQuestion = () => {
         return window.location.assign("result.html");
     }
     questionCounter++;
+    if (questionCounterText) {
     questionCounterText.innerText = questionCounter + "/" + MAX_QUESTIONS;
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
@@ -123,6 +131,7 @@ getNewQuestion = () => {
     availableQuestions.splice(questionIndex, 1);
 
     acceptingAnswers = true;
+    }
 };
 
 choices.forEach(choice => {
@@ -151,8 +160,12 @@ choices.forEach(choice => {
 function displayResults() {
     // Retrieve the correct answers count from local storage
     const correctAnswers = parseInt(localStorage.getItem('correctAnswers'), 10);
+
     // Display the correct answers count
-    document.getElementById('resultsScore').innerText = correctAnswers;
+    const correctAnswer = document.getElementById('resultsScore');
+    if (correctAnswer) {
+      correctAnswer.innerText = correctAnswers; 
+    }   
     
     // Determine the message to display based on the correct answer count
     const resultsTitle = document.getElementById('resultsTitle');
@@ -174,10 +187,10 @@ function displayResults() {
                     text = "Congratulations! You have an excellent knowledge of Ukraine. Your understanding of the country's achievements, culture, and history is outstanding. You're a true Ukraine expert!";
     }
     
-    resultsTitle.innerText = title;
-    resultsText.innerText = text;
+    if (resultsTitle && resultsText) {
+        resultsTitle.innerText = title;
+        resultsText.innerText = text;
     }
-    
-    window.onload = displayResults;
-    
+}
+       
 startGame();
