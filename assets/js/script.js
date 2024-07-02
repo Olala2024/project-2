@@ -107,10 +107,10 @@ getNewQuestion = () => {
         // Store the correct answers count in local storage
         localStorage.setItem('correctAnswers', correctAnswers);
         //Go to result page
-        return window.location.assign("/result.html");
+        return window.location.assign("result.html");
     }
     questionCounter++;
-    questionCounterText.innerText = questionCounter +"/" + MAX_QUESTIONS;
+    questionCounterText.innerText = questionCounter + "/" + MAX_QUESTIONS;
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
     question.innerText = currentQuestion.question;
@@ -152,7 +152,7 @@ function displayResults() {
     // Retrieve the correct answers count from local storage
     const correctAnswers = parseInt(localStorage.getItem('correctAnswers'), 10);
     // Display the correct answers count
-    document.getElementById('resultScore').innerText = correctAnswers;
+    document.getElementById('resultsScore').innerText = correctAnswers;
     
     // Determine the message to display based on the correct answer count
     const resultsTitle = document.getElementById('resultsTitle');
