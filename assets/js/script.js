@@ -7,6 +7,7 @@ let acceptingAnswers = false;
 let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
+let correctAnswers = 0;
 
 let questions = [
     {
@@ -103,7 +104,9 @@ startGame = () => {
 getNewQuestion = () => {
 
     if(availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
-        //got to result page
+        // Store the correct answers count in local storage
+        localStorage.setItem('correctAnswers', correctAnswers);
+        //Go to result page
         return window.location.assign("/result.html");
     }
     questionCounter++;
@@ -130,13 +133,18 @@ choices.forEach(choice => {
         const selectedAnswer = selectedChoice.dataset["number"];
 
         const classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect';
+
+        if (classToApply === 'correct') {
+            correctAnswers++;
+            console.log(correctAnswers);
+        }
        
         selectedChoice.parentElement.classList.add(classToApply);
         
         setTimeout( () => {
             selectedChoice.parentElement.classList.remove(classToApply);
             getNewQuestion();
-        }, 1000);
+        }, 500);
     });
 });
     
