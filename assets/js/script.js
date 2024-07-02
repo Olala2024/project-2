@@ -165,23 +165,37 @@ getNewQuestion = () => {
   }
 };
 
+/**
+ * Adds click event listeners to each choice element.
+ * When a choice is clicked, it checks if answers are being accepted, then evaluates the selected answer,
+ * applies the appropriate class (correct/incorrect), updates the score if correct, and retrieves a new question.
+ */
 choices.forEach((choice) => {
   choice.addEventListener("click", (e) => {
+    // If answers are not being accepted, do nothing
     if (!acceptingAnswers) return;
+
+    // Prevent further answer selection until the next question is loaded
     acceptingAnswers = false;
+
+    // Get the selected choice element and its answer number
     const selectedChoice = e.target;
     const selectedAnswer = selectedChoice.dataset["number"];
 
+    // Determine if the selected answer is correct
     const classToApply =
       selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
 
+    // If the answer is correct, increment the correct answers count
     if (classToApply === "correct") {
       correctAnswers++;
       console.log(correctAnswers);
     }
 
+    // Apply the appropriate class to the selected choice's parent element
     selectedChoice.parentElement.classList.add(classToApply);
 
+    // Remove the applied class after a short delay and retrieve a new question
     setTimeout(() => {
       selectedChoice.parentElement.classList.remove(classToApply);
       getNewQuestion();
