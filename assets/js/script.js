@@ -1,6 +1,11 @@
+/**
+ * Event listener for the DOMContentLoaded event.
+ * This ensures that the script runs only after the DOM is fully loaded.
+ */
 document.addEventListener("DOMContentLoaded", function () {
-  // Check if the results page is being rendered by checking the ID
+  // Check if the results page is being rendered by checking the ID of the results element
   if (document.getElementById("results")) {
+    // Call the function to display results
     displayResults();
   }
 });
